@@ -40,7 +40,21 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Core boundary: domain and application code do not import Next.js, React, Drizzle,
+  Neon, provider SDKs, CLI frameworks, HTTP frameworks, or adapter-specific code.
+- Paper-trading safety: no live trading, live order placement, real brokerage
+  execution, real-money workflows, or production provider credentials are in
+  scope.
+- Provider agnosticism: AI, broker, market-data, and persistence access go
+  through application-defined ports with mock adapters first.
+- Auditability: recommendations persist input snapshots, source references,
+  provider identifiers, score, confidence, risk assessment, explanation,
+  timestamps, and correlation identifiers.
+- Separation of concerns: AI analysis, scoring, and risk validation are separate
+  workflow steps with separately identifiable outputs.
+- TypeScript quality: strict TypeScript, Zod validation at trust boundaries,
+  Biome formatting/linting, and automated tests are planned for core logic and
+  provider contracts.
 
 ## Project Structure
 

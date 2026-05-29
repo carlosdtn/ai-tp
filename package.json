@@ -1,0 +1,14 @@
+{
+  "name": "ai-trading-platform",
+  "private": true,
+  "packageManager": "pnpm@10.11.0",
+  "scripts": {
+    "format": "biome format --write .",
+    "format:check": "biome format .",
+    "lint": "biome lint .",
+    "check": "biome check ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4"
+  }
+}

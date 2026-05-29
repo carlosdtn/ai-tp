@@ -1,0 +1,24 @@
+{
+  "name": "@ai-tp/cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "ai-tp": "./src/index.ts"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@ai-tp/core": "workspace:*",
+    "@ai-tp/providers-mock": "workspace:*",
+    "@ai-tp/shared": "workspace:*",
+    "tsx": "^4.19.4"
+  },
+  "devDependencies": {
+    "@ai-tp/config": "workspace:*"
+  }
+}

@@ -7,7 +7,15 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["node_modules", ".next", "dist", "coverage"]
+    "ignore": [
+      "node_modules",
+      ".next",
+      ".turbo",
+      "dist",
+      "coverage",
+      "packages/*/.turbo",
+      "apps/*/.turbo"
+    ]
   },
   "formatter": {
     "enabled": true,

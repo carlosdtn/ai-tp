@@ -2,13 +2,27 @@
   "name": "ai-trading-platform",
   "private": true,
   "packageManager": "pnpm@10.11.0",
+  "type": "module",
   "scripts": {
+    "build": "turbo build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "cli": "pnpm --filter @ai-tp/cli start --",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "lint": "biome lint .",
-    "check": "biome check ."
+    "check": "biome check . && turbo check"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.15.21",
+    "@vitejs/plugin-react": "^4.5.0",
+    "jsdom": "^26.1.0",
+    "turbo": "^2.5.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.4"
+  },
+  "dependencies": {
+    "zod": "^3.25.36"
   }
 }

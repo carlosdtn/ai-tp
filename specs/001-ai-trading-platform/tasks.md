@@ -21,20 +21,20 @@ and validated independently after foundational work is complete.
 
 **Purpose**: Initialize the monorepo, package boundaries, and quality tooling.
 
-- [ ] T001 Create pnpm workspace configuration in pnpm-workspace.yaml
-- [ ] T002 Create Turborepo task pipeline in turbo.json
-- [ ] T003 Update root package scripts and workspace metadata in package.json
-- [ ] T004 [P] Create shared TypeScript base config in packages/config/tsconfig/base.json
-- [ ] T005 [P] Create Node TypeScript config in packages/config/tsconfig/node.json
-- [ ] T006 [P] Create Next.js TypeScript config in packages/config/tsconfig/next.json
-- [ ] T007 [P] Create core package manifest in packages/core/package.json
-- [ ] T008 [P] Create mock providers package manifest in packages/providers-mock/package.json
-- [ ] T009 [P] Create persistence adapter package manifest in packages/persistence-drizzle/package.json
-- [ ] T010 [P] Create shared package manifest in packages/shared/package.json
-- [ ] T011 [P] Create CLI app package manifest in apps/cli/package.json
-- [ ] T012 [P] Create web app package manifest in apps/web/package.json
-- [ ] T013 Configure test runner workspace settings in vitest.config.ts
-- [ ] T014 Add environment example for paper-only local development in .env.example
+- [X] T001 Create pnpm workspace configuration in pnpm-workspace.yaml
+- [X] T002 Create Turborepo task pipeline in turbo.json
+- [X] T003 Update root package scripts and workspace metadata in package.json
+- [X] T004 [P] Create shared TypeScript base config in packages/config/tsconfig/base.json
+- [X] T005 [P] Create Node TypeScript config in packages/config/tsconfig/node.json
+- [X] T006 [P] Create Next.js TypeScript config in packages/config/tsconfig/next.json
+- [X] T007 [P] Create core package manifest in packages/core/package.json
+- [X] T008 [P] Create mock providers package manifest in packages/providers-mock/package.json
+- [X] T009 [P] Create persistence adapter package manifest in packages/persistence-drizzle/package.json
+- [X] T010 [P] Create shared package manifest in packages/shared/package.json
+- [X] T011 [P] Create CLI app package manifest in apps/cli/package.json
+- [X] T012 [P] Create web app package manifest in apps/web/package.json
+- [X] T013 Configure test runner workspace settings in vitest.config.ts
+- [X] T014 Add environment example for paper-only local development in .env.example
 
 ---
 
@@ -45,25 +45,25 @@ test harnesses required before any user story implementation.
 
 **Critical**: No user story work starts until this phase is complete.
 
-- [ ] T015 Create domain primitive types and ids in packages/core/src/domain/primitives.ts
-- [ ] T016 Create core error and result types in packages/core/src/domain/result.ts
-- [ ] T017 Create Zod schemas for instruments and watchlists in packages/core/src/schemas/watchlist.ts
-- [ ] T018 Create Zod schemas for provider payloads in packages/core/src/schemas/providers.ts
-- [ ] T019 Create Zod schemas for recommendations and audit records in packages/core/src/schemas/recommendations.ts
-- [ ] T020 Create AI provider port in packages/core/src/ports/ai-provider.ts
-- [ ] T021 Create market-data provider port in packages/core/src/ports/market-data-provider.ts
-- [ ] T022 Create broker provider port in packages/core/src/ports/broker-provider.ts
-- [ ] T023 Create repository ports in packages/core/src/ports/repositories.ts
-- [ ] T024 Create trace and clock ports in packages/core/src/ports/platform.ts
-- [ ] T025 Create architecture boundary test in tests/architecture/core-boundaries.test.ts
-- [ ] T026 Create provider contract test harness in tests/contract/provider-contracts.ts
-- [ ] T027 Create Drizzle schema skeleton in packages/persistence-drizzle/src/schema.ts
-- [ ] T028 Create persistence adapter index in packages/persistence-drizzle/src/index.ts
-- [ ] T029 Create in-memory repository test double in packages/shared/src/testing/in-memory-repositories.ts
-- [ ] T030 Create deterministic fixture catalog in packages/shared/src/testing/fixtures.ts
-- [ ] T031 Create paper-only configuration guard in packages/core/src/application/paper-trading-policy.ts
-- [ ] T032 Create core public exports in packages/core/src/index.ts
-- [ ] T033 Create mock providers public exports in packages/providers-mock/src/index.ts
+- [X] T015 Create domain primitive types and ids in packages/core/src/domain/primitives.ts
+- [X] T016 Create core error and result types in packages/core/src/domain/result.ts
+- [X] T017 Create Zod schemas for instruments and watchlists in packages/core/src/schemas/watchlist.ts
+- [X] T018 Create Zod schemas for provider payloads in packages/core/src/schemas/providers.ts
+- [X] T019 Create Zod schemas for recommendations and audit records in packages/core/src/schemas/recommendations.ts
+- [X] T020 Create AI provider port in packages/core/src/ports/ai-provider.ts
+- [X] T021 Create market-data provider port in packages/core/src/ports/market-data-provider.ts
+- [X] T022 Create broker provider port in packages/core/src/ports/broker-provider.ts
+- [X] T023 Create repository ports in packages/core/src/ports/repositories.ts
+- [X] T024 Create trace and clock ports in packages/core/src/ports/platform.ts
+- [X] T025 Create architecture boundary test in tests/architecture/core-boundaries.test.ts
+- [X] T026 Create provider contract test harness in tests/contract/provider-contracts.ts
+- [X] T027 Create Drizzle schema skeleton in packages/persistence-drizzle/src/schema.ts
+- [X] T028 Create persistence adapter index in packages/persistence-drizzle/src/index.ts
+- [X] T029 Create in-memory repository test double in packages/shared/src/testing/in-memory-repositories.ts
+- [X] T030 Create deterministic fixture catalog in packages/shared/src/testing/fixtures.ts
+- [X] T031 Create paper-only configuration guard in packages/core/src/application/paper-trading-policy.ts
+- [X] T032 Create core public exports in packages/core/src/index.ts
+- [X] T033 Create mock providers public exports in packages/providers-mock/src/index.ts
 
 **Checkpoint**: Core boundaries, ports, schemas, fixtures, and test harnesses are
 ready for story work.
@@ -81,27 +81,27 @@ timestamps, and trace id.
 
 ### Tests for User Story 1
 
-- [ ] T034 [P] [US1] Add decision workflow unit tests in packages/core/src/application/generate-recommendations.test.ts
-- [ ] T035 [P] [US1] Add scoring engine unit tests in packages/core/src/application/scoring-engine.test.ts
-- [ ] T036 [P] [US1] Add risk engine unit tests in packages/core/src/application/risk-engine.test.ts
-- [ ] T037 [P] [US1] Add provider log audit tests in packages/core/src/application/provider-execution-log.test.ts
-- [ ] T038 [P] [US1] Add mock provider contract tests in packages/providers-mock/src/mock-providers.contract.test.ts
+- [X] T034 [P] [US1] Add decision workflow unit tests in packages/core/src/application/generate-recommendations.test.ts
+- [X] T035 [P] [US1] Add scoring engine unit tests in packages/core/src/application/scoring-engine.test.ts
+- [X] T036 [P] [US1] Add risk engine unit tests in packages/core/src/application/risk-engine.test.ts
+- [X] T037 [P] [US1] Add provider log audit tests in packages/core/src/application/provider-execution-log.test.ts
+- [X] T038 [P] [US1] Add mock provider contract tests in packages/providers-mock/src/mock-providers.contract.test.ts
 
 ### Implementation for User Story 1
 
-- [ ] T039 [P] [US1] Create instrument and watchlist domain models in packages/core/src/domain/watchlist.ts
-- [ ] T040 [P] [US1] Create recommendation domain models in packages/core/src/domain/recommendation.ts
-- [ ] T041 [P] [US1] Create provider audit domain models in packages/core/src/domain/provider-execution-log.ts
-- [ ] T042 [P] [US1] Create workflow run domain model in packages/core/src/domain/workflow-run.ts
-- [ ] T043 [US1] Implement scoring engine in packages/core/src/application/scoring-engine.ts
-- [ ] T044 [US1] Implement risk engine in packages/core/src/application/risk-engine.ts
-- [ ] T045 [US1] Implement provider execution logger service in packages/core/src/application/provider-execution-logger.ts
-- [ ] T046 [US1] Implement recommendation generation use case in packages/core/src/application/generate-recommendations.ts
-- [ ] T047 [P] [US1] Implement mock market-data provider in packages/providers-mock/src/mock-market-data-provider.ts
-- [ ] T048 [P] [US1] Implement mock AI provider in packages/providers-mock/src/mock-ai-provider.ts
-- [ ] T049 [P] [US1] Implement mock broker provider in packages/providers-mock/src/mock-broker-provider.ts
-- [ ] T050 [US1] Wire mock provider scenario factory in packages/providers-mock/src/mock-provider-factory.ts
-- [ ] T051 [US1] Add workflow integration test in tests/integration/generate-recommendations.test.ts
+- [X] T039 [P] [US1] Create instrument and watchlist domain models in packages/core/src/domain/watchlist.ts
+- [X] T040 [P] [US1] Create recommendation domain models in packages/core/src/domain/recommendation.ts
+- [X] T041 [P] [US1] Create provider audit domain models in packages/core/src/domain/provider-execution-log.ts
+- [X] T042 [P] [US1] Create workflow run domain model in packages/core/src/domain/workflow-run.ts
+- [X] T043 [US1] Implement scoring engine in packages/core/src/application/scoring-engine.ts
+- [X] T044 [US1] Implement risk engine in packages/core/src/application/risk-engine.ts
+- [X] T045 [US1] Implement provider execution logger service in packages/core/src/application/provider-execution-logger.ts
+- [X] T046 [US1] Implement recommendation generation use case in packages/core/src/application/generate-recommendations.ts
+- [X] T047 [P] [US1] Implement mock market-data provider in packages/providers-mock/src/mock-market-data-provider.ts
+- [X] T048 [P] [US1] Implement mock AI provider in packages/providers-mock/src/mock-ai-provider.ts
+- [X] T049 [P] [US1] Implement mock broker provider in packages/providers-mock/src/mock-broker-provider.ts
+- [X] T050 [US1] Wire mock provider scenario factory in packages/providers-mock/src/mock-provider-factory.ts
+- [X] T051 [US1] Add workflow integration test in tests/integration/generate-recommendations.test.ts
 
 **Checkpoint**: MVP recommendation workflow is functional and independently
 testable without web dashboard or CLI.
@@ -118,21 +118,21 @@ detail views expose the full audit story.
 
 ### Tests for User Story 2
 
-- [ ] T052 [P] [US2] Add dashboard data contract tests in apps/web/src/app/recommendations/recommendation-view-model.test.ts
-- [ ] T053 [P] [US2] Add recommendation detail rendering test in apps/web/src/app/recommendations/[id]/page.test.tsx
+- [X] T052 [P] [US2] Add dashboard data contract tests in apps/web/src/app/recommendations/recommendation-view-model.test.ts
+- [X] T053 [P] [US2] Add recommendation detail rendering test in apps/web/src/app/recommendations/[id]/page.test.tsx
 
 ### Implementation for User Story 2
 
-- [ ] T054 [P] [US2] Create Next.js app shell in apps/web/src/app/layout.tsx
-- [ ] T055 [P] [US2] Create dashboard home page in apps/web/src/app/page.tsx
-- [ ] T056 [P] [US2] Create dashboard Tailwind styles in apps/web/src/app/globals.css
-- [ ] T057 [US2] Create dashboard application service adapter in apps/web/src/lib/application.ts
-- [ ] T058 [US2] Create recommendation list view model in apps/web/src/app/recommendations/recommendation-view-model.ts
-- [ ] T059 [US2] Create recommendations list page in apps/web/src/app/recommendations/page.tsx
-- [ ] T060 [US2] Create recommendation detail page in apps/web/src/app/recommendations/[id]/page.tsx
-- [ ] T061 [US2] Create provider log summary component in apps/web/src/components/provider-log-summary.tsx
-- [ ] T062 [US2] Create risk assessment component in apps/web/src/components/risk-assessment.tsx
-- [ ] T063 [US2] Create score breakdown component in apps/web/src/components/score-breakdown.tsx
+- [X] T054 [P] [US2] Create Next.js app shell in apps/web/src/app/layout.tsx
+- [X] T055 [P] [US2] Create dashboard home page in apps/web/src/app/page.tsx
+- [X] T056 [P] [US2] Create dashboard Tailwind styles in apps/web/src/app/globals.css
+- [X] T057 [US2] Create dashboard application service adapter in apps/web/src/lib/application.ts
+- [X] T058 [US2] Create recommendation list view model in apps/web/src/app/recommendations/recommendation-view-model.ts
+- [X] T059 [US2] Create recommendations list page in apps/web/src/app/recommendations/page.tsx
+- [X] T060 [US2] Create recommendation detail page in apps/web/src/app/recommendations/[id]/page.tsx
+- [X] T061 [US2] Create provider log summary component in apps/web/src/components/provider-log-summary.tsx
+- [X] T062 [US2] Create risk assessment component in apps/web/src/components/risk-assessment.tsx
+- [X] T063 [US2] Create score breakdown component in apps/web/src/components/score-breakdown.tsx
 
 **Checkpoint**: Dashboard review flow works from seeded data and shows audit
 details without owning business rules.
@@ -149,18 +149,18 @@ run recommendations, inspect provider logs, and show a recommendation.
 
 ### Tests for User Story 3
 
-- [ ] T064 [P] [US3] Add CLI command parser tests in apps/cli/src/commands/commands.test.ts
-- [ ] T065 [P] [US3] Add CLI recommendation workflow integration test in tests/integration/cli-recommendations.test.ts
+- [X] T064 [P] [US3] Add CLI command parser tests in apps/cli/src/commands/commands.test.ts
+- [X] T065 [P] [US3] Add CLI recommendation workflow integration test in tests/integration/cli-recommendations.test.ts
 
 ### Implementation for User Story 3
 
-- [ ] T066 [P] [US3] Create CLI entrypoint in apps/cli/src/index.ts
-- [ ] T067 [P] [US3] Create CLI output formatters in apps/cli/src/output.ts
-- [ ] T068 [US3] Create CLI application service adapter in apps/cli/src/application.ts
-- [ ] T069 [US3] Implement watchlist commands in apps/cli/src/commands/watchlist.ts
-- [ ] T070 [US3] Implement recommendations commands in apps/cli/src/commands/recommendations.ts
-- [ ] T071 [US3] Implement provider log commands in apps/cli/src/commands/provider-logs.ts
-- [ ] T072 [US3] Add CLI package binary configuration in apps/cli/package.json
+- [X] T066 [P] [US3] Create CLI entrypoint in apps/cli/src/index.ts
+- [X] T067 [P] [US3] Create CLI output formatters in apps/cli/src/output.ts
+- [X] T068 [US3] Create CLI application service adapter in apps/cli/src/application.ts
+- [X] T069 [US3] Implement watchlist commands in apps/cli/src/commands/watchlist.ts
+- [X] T070 [US3] Implement recommendations commands in apps/cli/src/commands/recommendations.ts
+- [X] T071 [US3] Implement provider log commands in apps/cli/src/commands/provider-logs.ts
+- [X] T072 [US3] Add CLI package binary configuration in apps/cli/package.json
 
 **Checkpoint**: CLI can execute core paper-trading workflows without dashboard
 code.
@@ -177,17 +177,17 @@ verify recommendation generation still uses the provider through ports only.
 
 ### Tests for User Story 4
 
-- [ ] T073 [P] [US4] Add alternate mock AI provider contract test in packages/providers-mock/src/alternate-ai-provider.contract.test.ts
-- [ ] T074 [P] [US4] Add malformed provider response test in tests/contract/invalid-provider-response.test.ts
-- [ ] T075 [P] [US4] Add architecture regression test for adapter imports in tests/architecture/adapter-boundaries.test.ts
+- [X] T073 [P] [US4] Add alternate mock AI provider contract test in packages/providers-mock/src/alternate-ai-provider.contract.test.ts
+- [X] T074 [P] [US4] Add malformed provider response test in tests/contract/invalid-provider-response.test.ts
+- [X] T075 [P] [US4] Add architecture regression test for adapter imports in tests/architecture/adapter-boundaries.test.ts
 
 ### Implementation for User Story 4
 
-- [ ] T076 [US4] Create provider contract documentation exports in packages/core/src/ports/provider-contracts.ts
-- [ ] T077 [US4] Implement alternate mock AI provider in packages/providers-mock/src/alternate-mock-ai-provider.ts
-- [ ] T078 [US4] Implement provider validation wrappers in packages/core/src/application/validated-providers.ts
-- [ ] T079 [US4] Add provider failure mapping in packages/core/src/application/provider-errors.ts
-- [ ] T080 [US4] Update mock provider factory to support provider replacement in packages/providers-mock/src/mock-provider-factory.ts
+- [X] T076 [US4] Create provider contract documentation exports in packages/core/src/ports/provider-contracts.ts
+- [X] T077 [US4] Implement alternate mock AI provider in packages/providers-mock/src/alternate-mock-ai-provider.ts
+- [X] T078 [US4] Implement provider validation wrappers in packages/core/src/application/validated-providers.ts
+- [X] T079 [US4] Add provider failure mapping in packages/core/src/application/provider-errors.ts
+- [X] T080 [US4] Update mock provider factory to support provider replacement in packages/providers-mock/src/mock-provider-factory.ts
 
 **Checkpoint**: Provider replacement and malformed provider behavior are covered
 by tests and contracts.
@@ -204,17 +204,17 @@ retrieve entries by recommendation, instrument, tag, and date range.
 
 ### Tests for User Story 5
 
-- [ ] T081 [P] [US5] Add journal use case unit tests in packages/core/src/application/journal.test.ts
-- [ ] T082 [P] [US5] Add CLI journal integration test in tests/integration/cli-journal.test.ts
+- [X] T081 [P] [US5] Add journal use case unit tests in packages/core/src/application/journal.test.ts
+- [X] T082 [P] [US5] Add CLI journal integration test in tests/integration/cli-journal.test.ts
 
 ### Implementation for User Story 5
 
-- [ ] T083 [P] [US5] Create journal domain model in packages/core/src/domain/journal.ts
-- [ ] T084 [P] [US5] Create journal Zod schemas in packages/core/src/schemas/journal.ts
-- [ ] T085 [US5] Implement journal use cases in packages/core/src/application/journal.ts
-- [ ] T086 [US5] Implement journal CLI command in apps/cli/src/commands/journal.ts
-- [ ] T087 [US5] Create journal dashboard page in apps/web/src/app/journal/page.tsx
-- [ ] T088 [US5] Create journal entry component in apps/web/src/components/journal-entry.tsx
+- [X] T083 [P] [US5] Create journal domain model in packages/core/src/domain/journal.ts
+- [X] T084 [P] [US5] Create journal Zod schemas in packages/core/src/schemas/journal.ts
+- [X] T085 [US5] Implement journal use cases in packages/core/src/application/journal.ts
+- [X] T086 [US5] Implement journal CLI command in apps/cli/src/commands/journal.ts
+- [X] T087 [US5] Create journal dashboard page in apps/web/src/app/journal/page.tsx
+- [X] T088 [US5] Create journal entry component in apps/web/src/components/journal-entry.tsx
 
 **Checkpoint**: Journal entries and paper outcome observations are linked to the
 audit trail.
@@ -225,13 +225,13 @@ audit trail.
 
 **Purpose**: Verify the complete V1 baseline, documentation, and safety gates.
 
-- [ ] T089 Run Biome format check and fix issues in biome.json
-- [ ] T090 Run all unit, contract, architecture, and integration tests from package.json
-- [ ] T091 Validate quickstart commands and update specs/001-ai-trading-platform/quickstart.md
-- [ ] T092 [P] Update root README with project overview in README.md
-- [ ] T093 [P] Add live-trading safety note to docs/safety.md
-- [ ] T094 Verify no live provider credentials or live-trading settings are committed in .env.example
-- [ ] T095 Review all recommendation views and CLI outputs for paper-only labeling in apps/web/src and apps/cli/src
+- [X] T089 Run Biome format check and fix issues in biome.json
+- [X] T090 Run all unit, contract, architecture, and integration tests from package.json
+- [X] T091 Validate quickstart commands and update specs/001-ai-trading-platform/quickstart.md
+- [X] T092 [P] Update root README with project overview in README.md
+- [X] T093 [P] Add live-trading safety note to docs/safety.md
+- [X] T094 Verify no live provider credentials or live-trading settings are committed in .env.example
+- [X] T095 Review all recommendation views and CLI outputs for paper-only labeling in apps/web/src and apps/cli/src
 
 ---
 

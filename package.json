@@ -1,13 +1,14 @@
 {
   "name": "ai-trading-platform",
   "private": true,
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "bun@1.3.5",
   "type": "module",
+  "workspaces": ["apps/*", "packages/*"],
   "scripts": {
     "build": "turbo build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "cli": "pnpm --filter @ai-tp/cli start --",
+    "cli": "bun run --cwd apps/cli start --",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "lint": "biome lint .",

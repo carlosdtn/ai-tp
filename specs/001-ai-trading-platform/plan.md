@@ -18,8 +18,8 @@ application services.
 **Language/Version**: TypeScript with strict settings; Node.js active LTS runtime.
 
 **Primary Dependencies**: Next.js App Router, React, TailwindCSS, Zod, Drizzle ORM,
-PostgreSQL driver, pnpm workspaces, Turborepo, Biome, and a Node.js CLI framework
-selected during implementation.
+PostgreSQL driver, Bun workspaces, Turborepo, Biome, and a Bun-powered TypeScript
+CLI.
 
 **Storage**: PostgreSQL target compatible with Neon. Drizzle ORM belongs only in
 the infrastructure/persistence adapter package.
@@ -119,7 +119,7 @@ tests/
 └── e2e/                         # Dashboard/CLI smoke tests after implementation
 ```
 
-**Structure Decision**: Use a pnpm workspace with Turborepo-compatible package
+**Structure Decision**: Use Bun workspaces with Turborepo-compatible package
 boundaries. `packages/core` owns all business rules and ports. `apps/web`,
 `apps/cli`, `packages/providers-mock`, and `packages/persistence-drizzle` are
 adapters that depend inward on core contracts.

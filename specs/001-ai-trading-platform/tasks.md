@@ -21,7 +21,7 @@ and validated independently after foundational work is complete.
 
 **Purpose**: Initialize the monorepo, package boundaries, and quality tooling.
 
-- [X] T001 Create pnpm workspace configuration in pnpm-workspace.yaml
+- [X] T001 Create Bun workspace configuration in package.json
 - [X] T002 Create Turborepo task pipeline in turbo.json
 - [X] T003 Update root package scripts and workspace metadata in package.json
 - [X] T004 [P] Create shared TypeScript base config in packages/config/tsconfig/base.json

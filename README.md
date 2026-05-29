@@ -9,10 +9,10 @@ broker, and market-data adapters, a CLI surface, and a Next.js dashboard scaffol
 ## Commands
 
 ```bash
-pnpm install
-pnpm check
-pnpm test
-pnpm cli recommendations run --watchlist "AI Paper Ideas"
+bun install
+bun run check
+bun run test
+bun run cli recommendations run --watchlist "AI Paper Ideas"
 ```
 
 ## Safety

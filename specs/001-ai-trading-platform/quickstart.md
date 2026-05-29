@@ -3,15 +3,15 @@
 ## Prerequisites
 
 - Node.js active LTS
-- pnpm
+- Bun
 - PostgreSQL-compatible database for persistence checks, or a local test database
   once implementation tasks add migrations
 
 ## Setup
 
 ```bash
-pnpm install
-pnpm check
+bun install
+bun run check
 ```
 
 ## Expected V1 Demo Flow
@@ -28,21 +28,21 @@ pnpm check
 ## Expected CLI Flow
 
 ```bash
-pnpm cli watchlist create --name "AI Paper Ideas"
-pnpm cli watchlist add-instrument --watchlist "AI Paper Ideas" --symbol "AAPL"
-pnpm cli recommendations run --watchlist "AI Paper Ideas" --scenario default
-pnpm cli provider-logs list --workflow-run "<workflow-run-id>"
-pnpm cli recommendations show --id "<recommendation-id>"
-pnpm cli journal add --recommendation "<recommendation-id>" --content "Reviewed thesis and risk notes."
+bun run cli watchlist create --name "AI Paper Ideas"
+bun run cli watchlist add-instrument --watchlist "AI Paper Ideas" --symbol "AAPL"
+bun run cli recommendations run --watchlist "AI Paper Ideas" --scenario default
+bun run cli provider-logs list --workflow-run "<workflow-run-id>"
+bun run cli recommendations show --id "<recommendation-id>"
+bun run cli journal add --recommendation "<recommendation-id>" --content "Reviewed thesis and risk notes."
 ```
 
 ## Quality Checks
 
 ```bash
-pnpm format:check
-pnpm lint
-pnpm check
-pnpm test
+bun run format:check
+bun run lint
+bun run check
+bun run test
 ```
 
 ## Safety Expectations

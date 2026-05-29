@@ -1,10 +1,10 @@
 # Research: AI Trading Platform
 
-## Decision: Use pnpm Workspaces with Turborepo-Compatible Tasks
+## Decision: Use Bun Workspaces with Turborepo-Compatible Tasks
 
-**Rationale**: pnpm workspaces provide simple dependency isolation and package
-linking. Turborepo-compatible scripts allow later task caching and graph-aware
-execution without changing package boundaries.
+**Rationale**: Bun workspaces provide package linking, a fast package manager, and
+a TypeScript runtime for the CLI. Turborepo-compatible scripts allow later task
+caching and graph-aware execution without changing package boundaries.
 
 **Alternatives considered**:
 

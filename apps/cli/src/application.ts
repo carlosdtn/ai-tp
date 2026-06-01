@@ -1,4 +1,10 @@
-import { type Watchlist, generateRecommendations } from "@ai-tp/core";
+import {
+  type RecommendationId,
+  type Watchlist,
+  evaluateRecommendationOutcome,
+  generateRecommendations,
+  summarizePerformance,
+} from "@ai-tp/core";
 import { createMockProviderSet } from "@ai-tp/providers-mock";
 import { createSeedInstrument, createSeedWatchlist } from "@ai-tp/shared/testing";
 import { createInMemoryRepositories } from "@ai-tp/shared/testing";
@@ -40,5 +46,50 @@ export const runRecommendations = async (watchlistName: string, scenario?: strin
       brokerProvider: providers.brokerProvider,
       marketDataProvider: providers.marketDataProvider,
     },
+  );
+};
+
+export const evaluatePerformance = async (input: {
+  recommendationId: string;
+  entryPrice: number;
+  evaluationPrice: number;
+  expectedDirection?: "up" | "down" | "flat";
+  horizonDays?: number;
+}) =>
+  evaluateRecommendationOutcome(
+    {
+      recommendationId: input.recommendationId as RecommendationId,
+      ...(input.expectedDirection ? { expectedDirection: input.expectedDirection } : {}),
+      ...(input.horizonDays === undefined ? {} : { horizonDays: input.horizonDays }),
+      entrySnapshot: {
+        price: input.entryPrice,
+        timestamp: new Date().toISOString(),
+        sourceRefs: ["mock://cli/entry-price"],
+        providerId: "mock-market-data",
+      },
+      evaluationSnapshot: {
+        price: input.evaluationPrice,
+        timestamp: new Date().toISOString(),
+        sourceRefs: ["mock://cli/evaluation-price"],
+        providerId: "mock-market-data",
+      },
+      evaluator: "cli",
+    },
+    repositories.outcomes,
+  );
+
+export const loadPerformanceSummary = async () => {
+  const outcomes = await repositories.outcomes.list();
+  const recommendations = await repositories.recommendations.list();
+  return summarizePerformance(
+    outcomes.map((outcome) => ({
+      outcome,
+      ...(() => {
+        const confidence = recommendations.find(
+          (recommendation) => recommendation.id === outcome.recommendationId,
+        )?.confidence;
+        return confidence === undefined ? {} : { confidence };
+      })(),
+    })),
   );
 };

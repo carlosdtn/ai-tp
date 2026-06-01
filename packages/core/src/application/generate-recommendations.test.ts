@@ -152,5 +152,13 @@ const createTestRepositories = (
         return [];
       },
     },
+    outcomes: {
+      async save(value) {
+        return value;
+      },
+      async list() {
+        return [];
+      },
+    },
   };
 };

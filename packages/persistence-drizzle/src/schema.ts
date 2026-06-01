@@ -38,3 +38,12 @@ export const journalEntries = pgTable("journal_entries", {
   createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull(),
 });
+
+export const recommendationOutcomes = pgTable("recommendation_outcomes", {
+  id: varchar("id", { length: 128 }).primaryKey(),
+  recommendationId: varchar("recommendation_id", { length: 128 }).notNull(),
+  classification: varchar("classification", { length: 32 }).notNull(),
+  payload: jsonb("payload").notNull(),
+  traceId: varchar("trace_id", { length: 128 }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull(),
+});

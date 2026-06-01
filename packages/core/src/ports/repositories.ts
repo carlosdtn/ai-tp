@@ -1,4 +1,5 @@
 import type { JournalEntry } from "../domain/journal";
+import type { RecommendationOutcome } from "../domain/outcome";
 import type {
   JournalEntryId,
   RecommendationId,
@@ -41,10 +42,16 @@ export type JournalRepository = {
   list(filters?: { recommendationId?: RecommendationId }): Promise<JournalEntry[]>;
 };
 
+export type RecommendationOutcomeRepository = {
+  save(outcome: RecommendationOutcome): Promise<RecommendationOutcome>;
+  list(filters?: { recommendationId?: RecommendationId }): Promise<RecommendationOutcome[]>;
+};
+
 export type Repositories = {
   watchlists: WatchlistRepository;
   recommendations: RecommendationRepository;
   workflowRuns: WorkflowRunRepository;
   providerLogs: ProviderExecutionLogRepository;
   journal: JournalRepository;
+  outcomes: RecommendationOutcomeRepository;
 };

@@ -22,6 +22,11 @@ export default async function DashboardPage() {
           <h2>Provider Logs</h2>
           <p>{data.providerLogs.length} mock provider calls</p>
         </article>
+        <article className="panel">
+          <h2>Performance</h2>
+          <p>{data.performanceSummary.evaluatedCount} evaluated outcomes</p>
+          <Link href="/performance">Track accuracy</Link>
+        </article>
       </div>
     </section>
   );

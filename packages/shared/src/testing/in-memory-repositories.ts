@@ -4,6 +4,7 @@ import type {
   ProviderExecutionLog,
   Recommendation,
   RecommendationId,
+  RecommendationOutcome,
   Repositories,
   TraceId,
   Watchlist,
@@ -18,6 +19,7 @@ export const createInMemoryRepositories = (seed?: { watchlists?: Watchlist[] }):
   const workflowRuns = new Map<WorkflowRunId, WorkflowRun>();
   const providerLogs: ProviderExecutionLog[] = [];
   const journal = new Map<JournalEntryId, JournalEntry>();
+  const outcomes: RecommendationOutcome[] = [];
 
   for (const watchlist of seed?.watchlists ?? []) {
     watchlists.set(watchlist.id, watchlist);
@@ -86,6 +88,22 @@ export const createInMemoryRepositories = (seed?: { watchlists?: Watchlist[] }):
         return filters?.recommendationId
           ? values.filter((entry) => entry.recommendationId === filters.recommendationId)
           : values;
+      },
+    },
+    outcomes: {
+      async save(outcome) {
+        const index = outcomes.findIndex((item) => item.id === outcome.id);
+        if (index >= 0) {
+          outcomes[index] = outcome;
+        } else {
+          outcomes.push(outcome);
+        }
+        return outcome;
+      },
+      async list(filters?: { recommendationId?: RecommendationId }) {
+        return filters?.recommendationId
+          ? outcomes.filter((item) => item.recommendationId === filters.recommendationId)
+          : outcomes;
       },
     },
   };

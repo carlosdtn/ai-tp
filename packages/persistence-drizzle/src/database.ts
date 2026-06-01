@@ -7,6 +7,7 @@ export type Database = ReturnType<typeof createDatabase>;
 
 export const createPostgresClient = (databaseUrl: string) =>
   postgres(databaseUrl, {
+    idle_timeout: 1,
     max: 5,
   });
 

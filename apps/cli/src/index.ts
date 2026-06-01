@@ -1,3 +1,4 @@
+import { handleDbCommand } from "./commands/db";
 import { handleJournalCommand } from "./commands/journal";
 import { handlePerformanceCommand } from "./commands/performance";
 import { handleProviderLogsCommand } from "./commands/provider-logs";
@@ -10,6 +11,8 @@ const [command, ...args] = normalizedArgs;
 
 if (command === "watchlist") {
   await handleWatchlistCommand(args);
+} else if (command === "db") {
+  await handleDbCommand(args);
 } else if (command === "recommendations") {
   await handleRecommendationsCommand(args);
 } else if (command === "provider-logs") {
@@ -20,6 +23,6 @@ if (command === "watchlist") {
   await handlePerformanceCommand(args);
 } else {
   process.stdout.write(
-    "Usage: ai-tp <watchlist|recommendations|provider-logs|journal|performance> [...args]\n",
+    "Usage: ai-tp <db|watchlist|recommendations|provider-logs|journal|performance> [...args]\n",
   );
 }

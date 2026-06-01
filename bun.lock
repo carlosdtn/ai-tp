@@ -25,6 +25,7 @@
       },
       "dependencies": {
         "@ai-tp/core": "workspace:*",
+        "@ai-tp/persistence-drizzle": "workspace:*",
         "@ai-tp/providers-mock": "workspace:*",
         "@ai-tp/shared": "workspace:*",
       },
@@ -37,6 +38,7 @@
       "version": "0.0.0",
       "dependencies": {
         "@ai-tp/core": "workspace:*",
+        "@ai-tp/persistence-drizzle": "workspace:*",
         "@ai-tp/providers-mock": "workspace:*",
         "@ai-tp/shared": "workspace:*",
         "next": "^15.3.3",

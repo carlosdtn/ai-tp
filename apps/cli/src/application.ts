@@ -5,12 +5,29 @@ import {
   generateRecommendations,
   summarizePerformance,
 } from "@ai-tp/core";
+import { createPostgresRepositories, initializeDatabase } from "@ai-tp/persistence-drizzle";
 import { createMockProviderSet } from "@ai-tp/providers-mock";
 import { createSeedInstrument, createSeedWatchlist } from "@ai-tp/shared/testing";
 import { createInMemoryRepositories } from "@ai-tp/shared/testing";
 
 const seedWatchlist = createSeedWatchlist();
-export const repositories = createInMemoryRepositories({ watchlists: [seedWatchlist] });
+const databaseUrl = process.env.DATABASE_URL;
+export const repositories = databaseUrl
+  ? createPostgresRepositories(databaseUrl)
+  : createInMemoryRepositories({ watchlists: [seedWatchlist] });
+
+export const persistenceStatus = () => ({
+  adapter: databaseUrl ? "postgresql" : "in-memory",
+  databaseConfigured: Boolean(databaseUrl),
+});
+
+export const initializePersistence = async () => {
+  if (!databaseUrl) {
+    return { ...persistenceStatus(), initialized: false };
+  }
+  await initializeDatabase(databaseUrl);
+  return { ...persistenceStatus(), initialized: true };
+};
 
 export const createWatchlist = async (name: string): Promise<Watchlist> => {
   const base = createSeedWatchlist();
@@ -21,7 +38,8 @@ export const createWatchlist = async (name: string): Promise<Watchlist> => {
 
 export const addInstrument = async (watchlistName: string, symbol: string): Promise<Watchlist> => {
   const watchlists = await repositories.watchlists.list();
-  const watchlist = watchlists.find((item) => item.name === watchlistName) ?? seedWatchlist;
+  const watchlist =
+    watchlists.find((item) => item.name === watchlistName) ?? (await ensureSeedWatchlist());
   const updated = {
     ...watchlist,
     instruments: [...watchlist.instruments, createSeedInstrument(symbol)],
@@ -32,7 +50,8 @@ export const addInstrument = async (watchlistName: string, symbol: string): Prom
 
 export const runRecommendations = async (watchlistName: string, scenario?: string) => {
   const watchlists = await repositories.watchlists.list();
-  const watchlist = watchlists.find((item) => item.name === watchlistName) ?? seedWatchlist;
+  const watchlist =
+    watchlists.find((item) => item.name === watchlistName) ?? (await ensureSeedWatchlist());
   const providers = createMockProviderSet();
   return generateRecommendations(
     {
@@ -47,6 +66,14 @@ export const runRecommendations = async (watchlistName: string, scenario?: strin
       marketDataProvider: providers.marketDataProvider,
     },
   );
+};
+
+const ensureSeedWatchlist = async (): Promise<Watchlist> => {
+  const existing = await repositories.watchlists.findById(seedWatchlist.id);
+  if (existing) {
+    return existing;
+  }
+  return repositories.watchlists.save(seedWatchlist);
 };
 
 export const evaluatePerformance = async (input: {

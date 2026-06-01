@@ -3,16 +3,21 @@ import {
   generateRecommendations,
   summarizePerformance,
 } from "@ai-tp/core";
+import { createPostgresRepositories } from "@ai-tp/persistence-drizzle";
 import { createMockProviderSet } from "@ai-tp/providers-mock";
 import { createInMemoryRepositories, createSeedWatchlist } from "@ai-tp/shared/testing";
 
 const seedWatchlist = createSeedWatchlist();
-export const webRepositories = createInMemoryRepositories({ watchlists: [seedWatchlist] });
+const databaseUrl = process.env.DATABASE_URL;
+export const webRepositories = databaseUrl
+  ? createPostgresRepositories(databaseUrl)
+  : createInMemoryRepositories({ watchlists: [seedWatchlist] });
 
 export const loadDashboardData = async () => {
+  const watchlist = await ensureDashboardWatchlist();
   const providers = createMockProviderSet();
   const result = await generateRecommendations(
-    { watchlistId: seedWatchlist.id, triggeredBy: "dashboard", scenarioId: "default" },
+    { watchlistId: watchlist.id, triggeredBy: "dashboard", scenarioId: "default" },
     {
       repositories: webRepositories,
       aiProvider: providers.aiProvider,
@@ -63,6 +68,11 @@ export const loadDashboardData = async () => {
     providerLogs,
     outcomes,
     performanceSummary,
-    watchlist: seedWatchlist,
+    watchlist,
   };
+};
+
+const ensureDashboardWatchlist = async () => {
+  const watchlists = await webRepositories.watchlists.list();
+  return watchlists[0] ?? webRepositories.watchlists.save(seedWatchlist);
 };

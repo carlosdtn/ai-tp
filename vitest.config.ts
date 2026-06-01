@@ -17,6 +17,12 @@ export default defineConfig({
         ),
       },
       {
+        find: "@ai-tp/persistence-drizzle",
+        replacement: fileURLToPath(
+          new URL("./packages/persistence-drizzle/src/index.ts", import.meta.url),
+        ),
+      },
+      {
         find: "@ai-tp/core",
         replacement: fileURLToPath(new URL("./packages/core/src/index.ts", import.meta.url)),
       },

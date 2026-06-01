@@ -21,7 +21,7 @@ The current branch implements the V1 baseline:
 - Recommendation audit trail and provider execution logs
 - Recommendation performance tracking for paper outcomes
 - Journal domain and basic workflow support
-- Drizzle/PostgreSQL persistence adapter skeleton
+- Drizzle/PostgreSQL persistence adapter for local-first durable testing
 - Architecture, contract, unit, and integration tests
 
 ## Safety Boundary
@@ -93,6 +93,20 @@ Run a mock recommendation workflow from the CLI:
 bun run cli recommendations run --watchlist "AI Paper Ideas" --scenario default
 ```
 
+Use local PostgreSQL persistence:
+
+```bash
+docker run --name ai-tp-postgres \
+  -e POSTGRES_USER=ai_tp \
+  -e POSTGRES_PASSWORD=ai_tp \
+  -e POSTGRES_DB=ai_tp \
+  -p 5432:5432 \
+  -d postgres:16
+
+export DATABASE_URL="postgres://ai_tp:ai_tp@localhost:5432/ai_tp"
+bun run cli db init
+```
+
 Evaluate a paper recommendation outcome:
 
 ```bash
@@ -111,6 +125,8 @@ bun run test
 bun run cli watchlist create --name "AI Paper Ideas"
 bun run cli watchlist add-instrument --watchlist "AI Paper Ideas" --symbol "AAPL"
 bun run cli recommendations run --watchlist "AI Paper Ideas" --scenario default
+bun run cli db status
+bun run cli db init
 bun run cli performance evaluate --recommendation "<recommendation-id>" --entry-price 100 --evaluation-price 103
 bun run cli performance summary
 ```
@@ -192,4 +208,5 @@ average return, and confidence grouped by outcome.
 - Keep provider integrations behind ports.
 - Keep V1 mock-only and paper-trading-only.
 - Use Zod at runtime trust boundaries.
+- Use `DATABASE_URL` to switch from in-memory repositories to PostgreSQL.
 - Run `bun run check` and `bun run test` before opening a pull request.
